@@ -70,7 +70,7 @@
             "buy":  1.0,
             "liquidity": "MEDIUM",
             "quickexchange": true,
-            "sell": 0.1
+            "sell": 0.5
         },
         "xrp": {
             "buy":  0.0008,
