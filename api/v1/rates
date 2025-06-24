@@ -67,10 +67,10 @@
             "sell":  0.00005
         },
         "xmg": {
-            "buy":  1.0,
-            "liquidity": "MEDIUM",
+            "buy":  1.25,
+            "liquidity": "HIGH",
             "quickexchange": true,
-            "sell": 0.5
+            "sell": 1.0
         },
         "xrp": {
             "buy":  0.0008,
