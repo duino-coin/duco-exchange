@@ -63,8 +63,8 @@
         "trx": {
             "buy":  0.001,
             "liquidity": "NO",
-            "quickexchange": false,
-            "sell":  0.00005
+            "quickexchange": true,
+            "sell":  0 
         },
         "xmg": {
             "buy":  1.25,
