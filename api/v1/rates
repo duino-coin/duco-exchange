@@ -36,12 +36,6 @@
             "quickexchange": false,
             "sell": 0
         },
-        "lke": {
-            "buy":  6,
-            "liquidity": "HIGH",
-            "quickexchange": true,
-            "sell": 3
-        },
         "xno": {
             "buy":  0.0005,
             "liquidity": "NO",
