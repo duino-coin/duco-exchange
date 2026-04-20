@@ -30,6 +30,12 @@
             "quickexchange": false,
             "sell": 0
         },
+        "lke": {
+            "buy":  6,
+            "liquidity": "HIGH",
+            "quickexchange": true,
+            "sell": 3
+        },
         "fjc": {
             "buy":  0,
             "liquidity": "NO",
