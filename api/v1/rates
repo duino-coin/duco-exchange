@@ -31,7 +31,7 @@
             "sell": 0
         },
         "lke": {
-            "buy":  6,
+            "buy":  4,
             "liquidity": "HIGH",
             "quickexchange": true,
             "sell": 3
