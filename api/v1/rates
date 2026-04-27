@@ -43,10 +43,10 @@
             "sell": 0
         },
         "xno": {
-            "buy":  0.0005,
-            "liquidity": "NO",
+            "buy":  0.00005,
+            "liquidity": "LOW",
             "quickexchange": false,
-            "sell": 0.0
+            "sell": 0.00002
         },
         "nim": {
             "buy":  0,
