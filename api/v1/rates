@@ -69,7 +69,7 @@
         "xmg": {
             "buy":  1.10,
             "liquidity": "HIGH",
-            "quickexchange": true,
+            "quickexchange": false,
             "sell": 0.90
         },
         "xrp": {
