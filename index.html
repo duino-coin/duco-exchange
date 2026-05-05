@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="images/logo.png" type="image/png" />
     <!-- SEO Stuff -->
     <meta name="description" content="Swap Duino-Coin between Bitcoin Cash, Coin Magi, Likecoin, Ripple, Tron and others in a few clicks">
-    <meta name="keywords" content="exchange, altcoin, beyondcoin, xmg, magi, bynd, bch, bitcoincash, likecoin, lke, duco, duino, duinocoin, arduino, crypto, mining, blockchain, cryptocurrency, bitcoin">
+    <meta name="keywords" content="exchange, altcoin, beyondcoin, xmg, magi, bynd, bch, bitcoincash, likecoin, duco, duino, duinocoin, arduino, crypto, mining, blockchain, cryptocurrency, bitcoin">
     <link rel="canonical" href="https://exchange.duinocoin.com/" />
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#D90088">
@@ -112,14 +112,14 @@
                                             <option value="BCH">Bitcoin Cash (Buy only)</option>
                                             <option value="BTC">Bitcoin (Buy only)</option>
                                             
-                                            <option value="TRX">Tron</option>
+                                            <option selected value="TRX">Tron</option>
                                             <option value="XNO">Nano</option>
                                             <option value="RVN">Ravencoin (Buy only)</option>
                                             <option value="DGB">Digibyte (Buy only)</option>
                                             <option value="XRP">Ripple (Buy only)</option>
                                             <option value="ETH">Ethereum (Buy only)</option>
                                             <option value="LTC">Litecoin (Buy only)</option>
-                                            <option selected value="LKE">Likecoin</option>
+                                            <!-- <option selected value="LKE">Likecoin</option> -->
                                             <option value="SHIB">Shiba inu (Buy only)</option>
                                             <option value="XMR">Monero (Buy only)</option>
                                             <option value="DOGE">Dogecoin (Buy only)</option>
@@ -142,8 +142,8 @@
                                     <img class="icon is-small" src="https://exchange.duinocoin.com/images/duco.png" id="from_icon">
                                     <span id="coin_from">DUCO</span>
                                     <span class="has-text-weight-normal">to</span>
-                                    <img class="icon is-small" src="https://exchange.duinocoin.com/images/lke.png" id="to_icon">
-                                    <span id="coin_to">LKE</span>
+                                    <img class="icon is-small" src="https://exchange.duinocoin.com/images/trx.png" id="to_icon">
+                                    <span id="coin_to">TRX</span>
                                 </p>
                             </div>
                             <div class="column is-narrow">
@@ -157,7 +157,7 @@
                             Confirm your choice
                         </p>
                         <p class="subtitle has-text-weight-normal is-size-5">
-                            You are about to <span id="swap_type" class="has-text-weight-bold">sell</span> DUCO.<br>Current <span id="swap_type">sell</span> price is<br><span id="swap_price" class="has-text-weight-bold">3 LKE</span> per <span class="has-text-weight-bold">1 DUCO</span>.
+                            You are about to <span id="swap_type" class="has-text-weight-bold">sell</span> DUCO.<br>Current <span id="swap_type">sell</span> price is<br><span id="swap_price" class="has-text-weight-bold">0.00005 TRX</span> per <span class="has-text-weight-bold">1 DUCO</span>.
                         </p>
                         <button class="button is-fullwidth is-success" onclick="$('#step_one').fadeOut(250, function(){$('#step_two').fadeIn(250)});">Continue to details</button>
                     </div>
@@ -181,7 +181,7 @@
                             Confirm your choice
                         </p>
                         <p class="subtitle has-text-weight-normal is-size-5">
-                            You want to <span id="swap_type" class="has-text-weight-bold">sell</span> <span id="swap_amount" class="has-text-weight-bold">0 DUCO</span> for <span id="swap_amount_alt" class="has-text-weight-bold">0 LKE</span>.<br>
+                            You want to <span id="swap_type" class="has-text-weight-bold">sell</span> <span id="swap_amount" class="has-text-weight-bold">0 DUCO</span> for <span id="swap_amount_alt" class="has-text-weight-bold">0 TRX</span>.<br>
                             <span class="has-text-grey is-size-6">This pair has <span id="swap_liquidity" class="has-text-weight-bold">medium</span> liquidity.</span>
                         </p>
                         <div class="columns">
@@ -213,7 +213,7 @@
                     </div>
                     <div class="box" style="max-width:500px">
                         <p class="heading is-size-5">
-                            5. Enter your <img class="icon is-small" src="https://exchange.duinocoin.com/images/lke.png" id="to_icon_t">&nbsp;<span id="current_coin">LKE</span> wallet
+                            5. Enter your <img class="icon is-small" src="https://exchange.duinocoin.com/images/trx.png" id="to_icon_t">&nbsp;<span id="current_coin">TRX</span> wallet
                         </p>
                         <div class="columns is-multiline is-gapless">
                             <div class="column is-full">
@@ -221,7 +221,7 @@
                             </div>
                             <div class="column mt-2">
                                 <span id="invalid_address" class="has-text-danger">
-                                    <i class="fa fa-times-circle"></i>&nbsp;Provide a valid <span id="current_coin">LKE</span> wallet address!
+                                    <i class="fa fa-times-circle"></i>&nbsp;Provide a valid <span id="current_coin">TRX</span> wallet address!
                                 </span>
                                 <span id="valid_address" class="has-text-success">
                                     <i class="fa fa-check-circle"></i>&nbsp;Wallet address looks correct
@@ -333,6 +333,8 @@
     </footer>
 </body>
 <script>
+let default_coin = "trx";
+
 let prices, dollar_prices;
 $.getJSON('https://exchange.duinocoin.com/api/v1/rates?v=' + new Date(), function(data) {
     prices = data.result;
@@ -340,6 +342,28 @@ $.getJSON('https://exchange.duinocoin.com/api/v1/rates?v=' + new Date(), functio
 $.getJSON(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash,nano,tron,ripple,ravencoin,digibyte,bitcoin,ethereum,litecoin,shiba-inu,monero,dogecoin&vs_currencies=usd`, function(data) {
     dollar_prices = data;
 });
+
+
+wait_for_prices();
+
+// https://stackoverflow.com/a/12841731
+// waits until we have all prices, before it sets the default coin pair
+function wait_for_prices(){
+    // as long as either of these two is undefined, wait
+    if (typeof prices === 'undefined' || typeof dollar_prices === 'undefined'){
+        setTimeout(wait_for_prices,100);
+    } else {
+        // being executed here, because otherwise we might not have a price for the default coin
+        set_default_coin(default_coin);
+    }
+}
+
+
+function set_default_coin(default_coin) {
+    document.getElementById("coin_select").value = default_coin.toUpperCase();
+    // update_element("current_coin", default_coin);
+    update_coins();
+}
 
 function round_to(precision, value) {
     power_of_ten = 10 ** precision;
