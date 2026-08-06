@@ -64,7 +64,7 @@
             "buy":  0.00008,
             "liquidity": "NO",
             "quickexchange": false,
-            "sell":  0.00005 
+            "sell":  0
         },
         "xmg": {
             "buy":  1.10,
